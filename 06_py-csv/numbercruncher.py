@@ -30,5 +30,4 @@ for i in range(len(list)):
     #print(str(counter) + ": " + name)
 
 #print(dict)
-for i in range(1000):
-    print(dict[r.randint(1, 998)])
+print(dict[r.randint(1, 998)])
