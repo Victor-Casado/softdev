@@ -14,7 +14,7 @@ list = list[1:len(list)-2] #removes example row, total row, and new line row
 
 names = []
 nums = []
-counter = 0
+#counter = 0
 
 for i in range(len(list)):
     if(list[i][0] == "\""):
@@ -27,7 +27,7 @@ for i in range(len(list)):
         num = split[1]
     names.append(name)
     nums.append(float(num))
-    counter += 1
+    #counter += 1
     #print(str(counter) + ": " + name)
 #print(names)
 #print(nums)
