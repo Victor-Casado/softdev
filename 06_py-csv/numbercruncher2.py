@@ -1,9 +1,9 @@
 #Victor Casado
 #The Flying Mice
 #SoftDev
-#K06 -- Divining Destiny
+#K06 -- Divining Destiny with second method
 #2024-09-18
-#time spent: .6 hours
+#time spent: .3 hours
 import random as r
 
 f = open("occupations.csv", "r")
@@ -12,7 +12,7 @@ string = f.read()
 list = string.split("\n")
 list = list[1:len(list)-2] #removes example row, total row, and new line row
 
-names =
+names = []
 nums = []
 counter = 0
 
@@ -25,11 +25,11 @@ for i in range(len(list)):
         split = list[i].split(",")
         name = split[0]
         num = split[1]
-    names[counter] = name
-    nums[counter] = num
+    names.append(name)
+    nums.append(float(num))
     counter += 1
     #print(str(counter) + ": " + name)
-print(names)
-print(nums)
+#print(names)
+#print(nums)
 #print(dict)
-print(r.choices(names, nums))
+print(r.choices(names, nums)[0])
