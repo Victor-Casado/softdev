@@ -39,6 +39,8 @@ If you add the input to app.route() to the end of the link, you can run the next
 This makes me think function definitions in flask have two lines:   
 1. The route to the webpage
 2. The name of the function (with no arguments?)   
+
+<br>
 If you add a route to a file that exists without defining a function at that route, it attempts to open the file:   
 HTML files are opened as HTML   
 Plaintext files are given a download prompt   
