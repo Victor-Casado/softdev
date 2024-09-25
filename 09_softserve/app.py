@@ -3,7 +3,7 @@
 #SoftDev
 #K09 -- Putting occupations on a website
 #2024-09-23
-#time spent: .5 hours
+#time spent: 1.2 hours
 import random as r
 
 def getnames():
@@ -25,7 +25,7 @@ def getnames():
             name = split[0]
         names+= name + " <br/>"
     return names
-    
+
 def pickrand():
     f = open("occupations.csv", "r")
     string = f.read()
