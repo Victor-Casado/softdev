@@ -42,5 +42,7 @@ This makes me think function definitions in flask have two lines:
 
 <br>
 If you add a route to a file that exists without defining a function at that route, it attempts to open the file:   
+<br>
 HTML files are opened as HTML   
+<br>
 Plaintext files are given a download prompt   
