@@ -18,7 +18,7 @@ displayed (the beginning of the fibonacci sequence).
 DISCO:
 You can put placeholder variables in an HTML file that are then initialized by render_template in the flask server.
 Putting https instead of http before the link breaks the website and the page says it receives a record that exceeds the maximum permissible length.
-    Makes me wonder difference between http and https
+    This makes me wonder what the difference is between http and https.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
