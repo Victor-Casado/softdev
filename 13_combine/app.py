@@ -36,8 +36,7 @@ def gettable():
     list = string.split("\n")
     list = list[1:len(list)-2] #removes example row, total row, and new line row
 
-    names = []
-    nums = []
+    dict = {}
     #counter = 0
     for i in range(len(list)):
         if(list[i][0] == "\""):
@@ -48,14 +47,13 @@ def gettable():
             split = list[i].split(",")
             name = split[0]
             num = split[1]
-        names.append(name)
-        nums.append(float(num))
+        dict.append({i:[name,num]})
         #counter += 1
         #print(str(counter) + ": " + name)
     #print(names)
     #print(nums)
     #print(dict)
-    return [names, nums]
+    return dict
 
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -69,7 +67,7 @@ def hello_world():
 @app.route("/wdywtbwygp")
 def test_tmplt():
 
-    return render_template( 'htmltmplt.html', title="An Appropriate Title", roster = "Victor Casado, Tawab Berri, Jacob Lukose", TNPG = "VICTOOOOOORIOUS", heading = "Heading placeholder", job = pickrand(), table = gettable())
+    return render_template( 'htmltmplt.html', title="An Appropriate Title", roster = "Victor Casado, Tawab Berri, Jacob Lukose", TNPG = "VICTOOOOOORIOUS", heading = "Heading placeholder", job = pickrand(), dictionary = gettable())
 
 
 if __name__ == "__main__":
