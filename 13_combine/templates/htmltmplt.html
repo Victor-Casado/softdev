@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+
+<html>
+
+  <head>
+    <title> {{ title }} </title>
+  </head>
+
+  <body>
+    {{heading}}
+    <br>
+    {{TNPG}}
+    <br>
+    {{roster}}
+    <br>
+    <p>
+    Your job is:
+  </p>
+  {{job}}
+
+  <p>All jobs:</p>
+  <table>
+    <tr>
+      <th>Job</th>
+      <th>Percentage</th>
+    </tr>
+    {% for item in table %}
+      {{item}}
+      {% endfor %}
+
+  </table>
+  </body>
+
+</html>
