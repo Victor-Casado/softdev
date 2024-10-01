@@ -34,7 +34,7 @@ def gettable():
     string = f.read()
 
     list = string.split("\n")
-    list = list[1:len(list)-2] #removes example row, total row, and new line row
+    list = list[1:len(list)-1] #removes example row, total row, and new line row
 
     dict = {}
     #counter = 0
@@ -47,7 +47,7 @@ def gettable():
             split = list[i].split(",")
             name = split[0]
             num = split[1]
-        dict.append({i:[name,num]})
+        dict.update({i:[name,num]})
         #counter += 1
         #print(str(counter) + ": " + name)
     #print(names)
@@ -67,7 +67,7 @@ def hello_world():
 @app.route("/wdywtbwygp")
 def test_tmplt():
 
-    return render_template( 'htmltmplt.html', title="An Appropriate Title", roster = "Victor Casado, Tawab Berri, Jacob Lukose", TNPG = "VICTOOOOOORIOUS", heading = "Heading placeholder", job = pickrand(), dictionary = gettable())
+    return render_template( 'htmltmplt.html', title="An Appropriate Title", roster = "Victor Casado, Tawab Berri, Jacob Lukose", TNPG = "VICTOOOOOORIOUS", heading = "A website that chooses a job for you and provides job info", job = pickrand(), dictionary = gettable())
 
 
 if __name__ == "__main__":

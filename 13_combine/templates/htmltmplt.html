@@ -22,13 +22,13 @@
   <p>All jobs:</p>
   <table>
     <tr>
-      <th>Job</th>
-      <th>Percentage</th>
+      <td><b>Job</b></td>
+      <td><b>Percentage</b></td>
     </tr>
     {% for i in dictionary %}
     <tr>
-      <th>{i}</th>
-
+      <td>{{dictionary[i][0]}}</td>
+      <td>{{dictionary[i][1]}}</td>
       {% endfor %}
 
   </table>
