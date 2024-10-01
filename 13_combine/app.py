@@ -14,12 +14,15 @@ def pickrand():
     for i in range(len(list)):
         if(list[i][0] == "\""):
             indexcomma = list[i][1:].index("\"") + 2
+            indexat = list[i][1:].index("@")
             name = list[i][1:indexcomma - 1] #starts at first quote, ends at second quote
-            num = list[i][indexcomma + 1:]
+            num = list[i][indexcomma + 1:indexat]
+            print(list[i])
+            print(list[i][indexat])
         else:
-            split = list[i].split(",")
-            name = split[0]
-            num = split[1]
+            split = list[i].split("@")
+            name = split[0].split(",")[0]
+            num = split[0].split(",")[1]
         names.append(name)
         nums.append(float(num))
     #counter += 1
@@ -34,20 +37,23 @@ def gettable():
     string = f.read()
 
     list = string.split("\n")
-    list = list[1:len(list)-1] #removes example row, total row, and new line row
+    list = list[1:len(list)-2] #removes example row, total row, and new line row
 
     dict = {}
     #counter = 0
     for i in range(len(list)):
         if(list[i][0] == "\""):
             indexcomma = list[i][1:].index("\"") + 2
+            indexat = list[i][1:].index("@")
             name = list[i][1:indexcomma - 1] #starts at first quote, ends at second quote
-            num = list[i][indexcomma + 1:]
+            num = list[i][indexcomma + 1:indexat]
+            link = list[i][indexat + 1:]
         else:
-            split = list[i].split(",")
-            name = split[0]
-            num = split[1]
-        dict.update({i:[name,num]})
+            split = list[i].split("@")
+            name = split[0].split(",")[0]
+            num = split[0].split(",")[1]
+            link = split[1]
+        dict.update({i:[name,num,link]})
         #counter += 1
         #print(str(counter) + ": " + name)
     #print(names)
@@ -72,4 +78,4 @@ def test_tmplt():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port=5001)
