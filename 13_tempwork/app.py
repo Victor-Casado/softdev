@@ -1,3 +1,10 @@
+#Victor Casado
+#VICTOOOOOORIOUS
+#SoftDev
+#K13 -- Putting occupations on a website with html
+#2024-10-1
+#time spent: 2.1 hours
+
 import random as r
 
 
