@@ -9,7 +9,7 @@ import random as r
 
 
 def pickrand():
-    f = open("data\occupations.csv", "r")
+    f = open("data/occupations.csv", "r")
     string = f.read()
 
     list = string.split("\n")
@@ -40,7 +40,7 @@ def pickrand():
     return r.choices(names, nums)[0]
 
 def gettable():
-    f = open("data\occupations.csv", "r")
+    f = open("data/occupations.csv", "r")
     string = f.read()
 
     list = string.split("\n")
@@ -85,4 +85,4 @@ def test_tmplt():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(port=5001)
+    app.run()
