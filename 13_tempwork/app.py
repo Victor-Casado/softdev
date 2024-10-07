@@ -9,7 +9,7 @@ import random as r
 
 
 def pickrand():
-    f = open("data/occupations.csv", "r")
+    f = open("data/occupations.csv", "r") #/ is file path in linux, but \ is file path in windows
     string = f.read()
 
     list = string.split("\n")
