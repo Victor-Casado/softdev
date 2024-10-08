@@ -71,7 +71,7 @@ def authenticate():
      print(request.args['username'])
      print("***DIAG: request.headers ***")
      print(request.headers)
-     return render_template('detination.html', username = request.args['username'])
+     return render_template('destination.html', username = request.args['username'])
   #response to a form submission
 
 
@@ -79,4 +79,4 @@ def authenticate():
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
     app.debug = True
-    app.run()
+    app.run(port=5001)
