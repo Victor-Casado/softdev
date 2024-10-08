@@ -3,7 +3,7 @@
 #SoftDev
 #K14 -- Understanding code
 #2024-10-8
-#time spent: .5 hours
+#time spent: .9 hours
 
 
 # import conventions:
