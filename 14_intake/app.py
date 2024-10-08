@@ -1,6 +1,10 @@
-# Clyde 'Thluffy' Sinclair
-# SoftDev
-# October 2024
+#Victor Casado
+#The Flying Mice
+#SoftDev
+#K14 -- Understanding code
+#2024-10-8
+#time spent: .5 hours
+
 
 # import conventions:
 # list most general first (standard python library)
