@@ -35,7 +35,10 @@ def auth_login():
     else:
         return redirect('/') # redirect back to / route
 
-
+@app.route('/logout')
+def logout():
+    del session['username']
+    return redirect('/')
 
 if __name__ == "__main__": #false if this file imported as module
     app.debug = True
