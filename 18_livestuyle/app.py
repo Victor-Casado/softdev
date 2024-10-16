@@ -1,4 +1,9 @@
-# heading
+#Jason Chao, Victor Casado, Evan Chan
+#The Flying Mice
+#SoftDev
+#18 - CSS Mimicry
+#2024 - 10 - 16
+#Time spent: 0.2 hours
 
 from flask import Flask, render_template, request, session, redirect
 import os
