@@ -1,63 +1,52 @@
-#Clyde "Thluffy" Sinclair
+# Victor Casado - The Flying Mice
 #SoftDev
 #skeleton/stub :: SQLITE3 BASICS
-#Oct 2024
+#Oct 20 2024 
 
-import sqlite3   #enable control of an sqlite database
-import csv       #facilitate CSV I/O
+import sqlite3
+import csv
 
-
-DB_FILE="discobandit.db"
+DB_FILE = "discobandit.db"
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops -- you will use cursor to trigger db events
+c = db.cursor()  #facilitate db ops -- you will use cursor to trigger db events
 
-#==========================================================
-def idFinder(a):
-    return int(a['id'])
-studentlist = []
-gradelist = []
-# Open the CSV file for reading
-with open('students.csv', mode='r') as file:
-    # Create a CSV reader with DictReader
-    csv_reader = csv.DictReader(file)
+# ==========================================================
 
-    # Iterate through each row in the CSV file
-    for row in csv_reader:
-        # Append each row (as a dictionary) to the list
-        studentlist.append(row)
+# create 'students' table if it doesn't exist
+c.execute('''
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY,  -- 'id' is the unique identifier (PRIMARY KEY)
+    name TEXT,               -- 'name' is a text field
+    age INTEGER              -- 'age' is an integer field
+);
+''')
 
-with open('courses.csv', mode='r') as file:
-    # Create a CSV reader with DictReader
-    csv_reader = csv.DictReader(file)
+# insert students data into db
+with open('students.csv', newline="") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        c.execute('INSERT OR IGNORE INTO students (id, name, age) VALUES (?, ?, ?)', 
+                  (row['id'], row['name'], row['age']))
 
-    # Iterate through each row in the CSV file
-    for row in csv_reader:
-        # Append each row (as a dictionary) to the list
-        gradelist.append(row)
-#print(gradelist)
-#print('\n')
-studentlist.sort(key=idFinder)
-#print(studentlist)
+# Ccreate 'courses' table if it doesn't exist
+c.execute('''
+CREATE TABLE IF NOT EXISTS courses (
+    student_id INTEGER,      -- links to the student's id in the 'students' table
+    code TEXT,               -- 'code' represents the course name
+    mark INTEGER,            -- 'mark' represents the student's grade
+    FOREIGN KEY(student_id) REFERENCES students(id)  -- ensures that student_id exists in 'students' table
+);
+''')
 
+# insert courses data into db
+with open('courses.csv', newline="") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        c.execute('INSERT OR IGNORE INTO courses (student_id, code, mark) VALUES (?, ?, ?)', 
+                  (row['id'], row['code'], row['mark']))
 
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
-c.execute("CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)")
-for i in gradelist:
-    code = i['code']
-    mark = int(i['mark'])
-    id = int(i['id'])
-    c.execute(f"INSERT INTO courses VALUES ({code}, {mark}, {id})")
-
-c.execute("CREATE TABLE students (code TEXT, mark INTEGER, id INTEGER PRIMARY KEY)")
-for i in gradelist:
-    name = i['name']
-    age = int(i['age'])
-    id = int(i['id'])
-    c.execute(f"INSERT INTO students VALUES ({name}, {age}, {id})")
-
-#==========================================================
+# ==========================================================
 
 db.commit() #save changes
-db.close()  #close database
+db.close() # close db
