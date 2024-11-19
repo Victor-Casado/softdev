@@ -12,3 +12,4 @@ Note: Usage of chatgpt.com for story content
   - q0b If answer to preceding question is 1, cite all resources consulted -- including verbal consultations and/or neighbouring team's readme. 1citation/line.)
   - q1 (_only to be answered after you have finished..._ At this point, which FEF do you prefer, and why? Your answer to this Q should be the only portion of your submission that differs from that of your teammate.)
 * _Reminder:_ include heading as comment in any source code you create.
+  I prefer tailwind, as I like that it requires multiple class keywords to create things, allowing for more customizability.
