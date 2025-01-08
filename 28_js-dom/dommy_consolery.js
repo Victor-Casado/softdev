@@ -78,8 +78,21 @@ var fib = function(n)
   };
 };
 // FAC
+var fac = function(n) {
+  if (n <= 1) {
+    return 1;
+  } else {
+    return n * fac(n - 1);
+  }
+};
 // GCD
-
+var gcd = function(a, b) {
+  if (b === 0) {
+    return a;
+  } else {
+    return gcd(b, a % b);
+  }
+};
 
 // In addition to the style shown above,
 //  you are encouraged to test drive the "arrow function syntax" as shown below.
