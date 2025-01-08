@@ -101,3 +101,7 @@ const myFxn = (param1, param2) => {
     // body
     return retVal;
 };
+
+addItem("" + fib(5));
+addItem("" + fac(5));
+addItem("" + gcd(6,9));
