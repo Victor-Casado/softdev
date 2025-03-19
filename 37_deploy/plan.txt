@@ -1,0 +1,7 @@
+Plan:
+
+1. Read through step 1 of tutorial
+2. Execute step 1 of tutorial on PM's machine
+3. Repeat steps 1 and 2 for each step of the tutorial, pausing if unexpected output occurs
+4. Do not provision domain name for PM
+5. Repeat previous steps for each team member
